@@ -6,9 +6,9 @@ Aimed at integrating Django REST Framework (DRF) with Elasticsearch, using Djang
 ## Routes
 The application has the following URLs:
 
-`/blog/user/` lists all users.
-`/blog/user/<USER_ID>/` fetches a specific user.
-`/blog/category/` lists all categories.
-`/blog/category/<CATEGORY_ID>/` fetches a specific category.
-`/blog/article/` lists all articles.
-`/blog/article/<ARTICLE_ID>/` fetches a specific article.
+- `/blog/user/` lists all users.
+- `/blog/user/<USER_ID>/` fetches a specific user.
+- `/blog/category/` lists all categories.
+- `/blog/category/<CATEGORY_ID>/` fetches a specific category.
+- `/blog/article/` lists all articles.
+- `/blog/article/<ARTICLE_ID>/` fetches a specific article.

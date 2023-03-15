@@ -30,6 +30,13 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+OTHER_APPS = [
+    "blog.apps.BlogConfig",
+    "search.apps.SearchConfig",
+    "rest_framework",
+    "django_elasticsearch_dsl"
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,8 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "blog.apps.BlogConfig",
-    "rest_framework"
+    *OTHER_APPS
 ]
 
 MIDDLEWARE = [
@@ -124,8 +130,20 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Django Rest Framework (DRF) Settings
+# Django Rest Framework (DRF)
+
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 25
 }
+
+# Elasticsearch
+# https://django-elasticsearch-dsl.readthedocs.io/en/latest/settings.html
+
+ELASTICSEARCH_DSL = {
+    "default": {
+        "hosts": "http://localhost:9200",
+        "http_auth": ("elasic", "insecure_password"),
+    }
+}
+

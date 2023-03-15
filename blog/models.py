@@ -28,5 +28,15 @@ class Article(models.Model):
     created_datetime = models.DateTimeField(auto_now_add=True)
     updated_datetime = models.DateTimeField(auto_now=True)
 
+    def type_to_string(self):
+        if self.type == "UN":
+            return ARTICLE_TYPES[0][1]
+        elif self.type == "TU":
+            return ARTICLE_TYPES[1][1]
+        elif self.type == "RS":
+            return ARTICLE_TYPES[2][1]
+        elif self.type == "RW":
+            return ARTICLE_TYPES[3][1]
+
     def __str__(self):
         return f"{self.author}: {self.title} ({self.created_datetime.date()})"
